@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model("plant_disease_model_final.h5")
+    return tf.keras.models.load_model("plant_disease_best.h5")
 model = load_model()
 class_names = ['Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy']
 st.title("🥔 Potato Leaf Disease Detector")
@@ -21,3 +21,4 @@ if uploaded_file is not None:
     confidence = np.max(prediction)
     st.success(f"**Prediction:** {predicted_class}")
     st.info(f"**Confidence:** {confidence:.2%}")
+
